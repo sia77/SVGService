@@ -8,6 +8,6 @@ import { SvgInitialDisplayComponent } from "../svg-initial-display/svg-initial-d
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent {
+export class MainComponent { 
 
 }

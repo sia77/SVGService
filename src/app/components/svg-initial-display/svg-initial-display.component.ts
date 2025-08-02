@@ -24,11 +24,13 @@ export class SvgInitialDisplayComponent {
 
 ngOnInit(): void {
     this.svgService.svg$.subscribe(svg => {
-      this.svgRawString = svg;
 
-      this.svgContent = this.sanitizer.bypassSecurityTrustHtml(this.svgRawString);
-
-      console.log("res: ", this.svgContent);
+      //console.log("svg: ", svg);
+      if(svg){
+        this.svgRawString = svg;
+        this.svgContent = this.sanitizer.bypassSecurityTrustHtml(this.svgRawString);
+      }
+      //console.log("res: ", this.svgContent);
     });
   }
 
