@@ -3,10 +3,11 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { SvgService } from '../../services/svg.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { heroArrowLeft, heroArrowRight } from '@ng-icons/heroicons/outline';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-svg-initial-display',
-  imports: [NgIcon],
+  imports: [NgIcon, MatButtonModule],
   providers: [provideIcons({ heroArrowLeft, heroArrowRight })],
 
   templateUrl: './svg-initial-display.component.html',
@@ -22,16 +23,31 @@ export class SvgInitialDisplayComponent {
     private sanitizer: DomSanitizer
   ){}
 
-ngOnInit(): void {
+  ngOnInit(): void {
     this.svgService.svg$.subscribe(svg => {
-
-      //console.log("svg: ", svg);
       if(svg){
         this.svgRawString = svg;
         this.svgContent = this.sanitizer.bypassSecurityTrustHtml(this.svgRawString);
       }
-      //console.log("res: ", this.svgContent);
     });
+    this.canGoBack();
+    this.canGoForward();
+  }
+
+  canGoBack(){    
+    return this.svgService.canGoBack();
+  }
+
+  canGoForward(){
+    return this.svgService.canGoForward()
+  }
+
+  goBack(){
+    this.svgService.goBack();
+  }
+
+  goForward(){
+    this.svgService.goForward();
   }
 
 }

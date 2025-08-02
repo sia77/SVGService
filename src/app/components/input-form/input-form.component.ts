@@ -21,8 +21,6 @@ export class InputFormComponent {
   loading:boolean = false;
   private loadingTimeout: any;
 
-  
-
   getUserFullName = new FormGroup({
     fullName: new FormControl('')
   });
@@ -37,8 +35,15 @@ export class InputFormComponent {
     }, 2000);
 
     this.svgService.getInitalsInSVG(name).subscribe({
-      next: () => this.cleanupLoading(),
-      error: () => this.cleanupLoading()
+      next: () => {
+        this.cleanupLoading();
+        this.getUserFullName.get('fullName')?.setValue('');
+      },
+      error: (err:any) => {
+        console.log(`${err}`);
+        new Error(`API error: ${err}`);
+        this.cleanupLoading();
+      }
     });
   }
 

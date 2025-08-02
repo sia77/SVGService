@@ -2,13 +2,17 @@
 
 <div class="flex justify-center items-center mt-8 md:mt-2">
     <div>
-        <ng-icon name="heroArrowLeft" size="42"></ng-icon>
+        <button mat-flat-button class="flex-none !rounded-sm browse-button" [disabled]="!canGoBack()" (click)="goBack()">
+            <ng-icon name="heroArrowLeft" size="30"></ng-icon>
+        </button>        
     </div>
     <div class="svg_container w-[300px] h-[300px] border rounded-sm flex justify-center items-center">
         <div [innerHTML]="svgContent"></div>
     </div>
     <div>
-        <ng-icon name="heroArrowRight" size="42"></ng-icon>
+        <button mat-flat-button class="flex-none !rounded-sm browse-button" [disabled]="!canGoForward()" (click)="goForward()">
+            <ng-icon name="heroArrowRight" size="30"></ng-icon>
+        </button>        
     </div>
 </div>
 
