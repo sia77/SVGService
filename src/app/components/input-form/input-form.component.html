@@ -1,0 +1,10 @@
+<div class="">
+    <form [formGroup]="getUserFullName" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+  <mat-form-field appearance="outline" class="w-full md:max-w-full">    
+    <input matInput formControlName="fullName" />
+  </mat-form-field>
+  <button mat-flat-button type="submit" class="flex-none !rounded-sm submit-button">Submit</button>
+</form>
+
+</div>
+

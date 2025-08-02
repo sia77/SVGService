@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 130 130">
+  <style>
+    .letter {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 70px;
+    }
+    .shadow {
+      fill: #ff3434;
+    }
+    .main {
+      fill: #ffffff;
+    }
+  </style>
+
+  <!-- Background rectangle -->
+  <rect width="200" height="200" fill="#fab6e2" />
+
+  <!-- S with shadow -->
+  <text x="25" y="90" class="letter shadow">S</text>
+  <text x="27" y="90" class="letter shadow">S</text>
+  <text x="25" y="92" class="letter shadow">S</text>
+  <text x="27" y="92" class="letter shadow">S</text>
+
+
+<text x="65" y="99" class="letter main">P</text>
+<text x="67" y="99" class="letter main">P</text>
+<text x="65" y="101" class="letter main">P</text>
+<text x="67" y="101" class="letter main">P</text>
+
+<!-- P main layer -->
+<text x="66" y="100" class="letter main">P</text>
+</svg>
