@@ -4,10 +4,27 @@
     <form [formGroup]="getUserFullName" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
       <mat-form-field appearance="outline" class="w-full md:max-w-full">    
         <input matInput formControlName="fullName" />
+          <mat-error *ngIf="fullNameControl.hasError('required')">
+            Name is required.
+          </mat-error>
+
+          <mat-error *ngIf="fullNameControl.hasError('minlength')">
+            Name must be at least 2 characters.
+          </mat-error>
+
+          <mat-error *ngIf="fullNameControl.hasError('pattern')">
+            Only letters, numbers, and single spaces between words are allowed.
+          </mat-error>
       </mat-form-field>
-      <button mat-flat-button type="submit" class="flex-none !rounded-sm submit-button">Submit</button>
+      <button 
+        mat-flat-button 
+        type="submit" 
+        [disabled]="getUserFullName.invalid" 
+        class="flex-none !rounded-sm submit-button">
+        Submit
+      </button>
     </form>
   </div>  
-  <app-loading-spinner *ngIf="loading" class="spinner-overlay"></app-loading-spinner>
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
 </div>
 
