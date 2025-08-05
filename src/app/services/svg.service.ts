@@ -20,7 +20,6 @@ export class SvgService {
     const url = "https://tagdiscovery.com/api/get-initials";
     let params = new HttpParams()
       .set('name', name);
-      //.set('delay', 10);
       
       return this.httpClient.get(url, { params,responseType: 'text' }).pipe(
         catchError(err => throwError(() => new Error(`API error: ${err}`))),
@@ -35,7 +34,6 @@ export class SvgService {
     this.history = this.history.slice(0, this.index + 1);
     this.history.push(svg);
     this.index++;
-    console.table(this.history);
   }
 
   goBack(){
