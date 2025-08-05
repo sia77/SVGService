@@ -7,13 +7,12 @@
           <mat-error *ngIf="fullNameControl.hasError('required')">
             Name is required.
           </mat-error>
-
           <mat-error *ngIf="fullNameControl.hasError('minlength')">
             Name must be at least 2 characters.
           </mat-error>
-
-          <mat-error *ngIf="fullNameControl.hasError('pattern')">
-            Only letters, numbers, and single spaces between words are allowed.
+          <!-- This condistion is added to make sure the error above it and this error are not displayed at the same time -->
+          <mat-error *ngIf="!fullNameControl.errors?.['minlength'] && fullNameControl.hasError('pattern')">
+            Letters, numbers, 1 space max between words.
           </mat-error>
       </mat-form-field>
       <button 
