@@ -10,7 +10,6 @@
           <mat-error *ngIf="fullNameControl.hasError('minlength')">
             Name must be at least 2 characters.
           </mat-error>
-          <!-- This condistion is added to make sure the error above it and this error are not displayed at the same time -->
           <mat-error *ngIf="!fullNameControl.errors?.['minlength'] && fullNameControl.hasError('pattern')">
             Letters, numbers, 1 space max between words.
           </mat-error>
@@ -18,7 +17,6 @@
       <button 
         mat-flat-button 
         type="submit" 
-        [disabled]="getUserFullName.invalid" 
         class="flex-none !rounded-sm submit-button">
         Submit
       </button>
